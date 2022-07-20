@@ -1,14 +1,22 @@
-import _ from 'lodash';
 import './css/index.css';
+import getMovies from './script/api.js';
 
-function component() {
-  const element = document.createElement('div');
+const displayMovie = (movie) => `<div class="card">
+                    <div><img class="card-img" src="${movie.image.medium}"></div>
+                    <div>
+                    <h3>${movie.name}</h3>
+                    <p class="likes"> <i class="fas fa-heart"></i> <span> N </span> likes </p>
+                    <button class="btn">comments</button>
+                    </div>
+                    </div>`;
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+const listMovie = document.querySelector('.movies');
+const moviesComponent = async () => {
+  listMovie.innerHTML = '';
+  const list = await getMovies();
+  list.forEach((item) => {
+    listMovie.innerHTML += displayMovie(item);
+  });
+};
 
-  return element;
-}
-
-document.body.appendChild(component());
+moviesComponent();
