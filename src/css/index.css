@@ -6,7 +6,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: #22254b;
-  }
+}
 
 nav ul {
   width: 100%;
@@ -26,6 +26,11 @@ nav ul > li {
   text-decoration: none;
 }
 
+footer p a {
+  text-decoration: none;
+  color: yellow;
+}
+
 nav ul li a {
   color: #fff;
   font-size: 1.5em;
@@ -34,7 +39,7 @@ nav ul li a {
 }
 
 nav ul ul > li:hover {
-  background-color: #111111;
+  background-color: #111;
 }
 
 footer {
@@ -46,10 +51,4 @@ footer {
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
-
-}
-
-footer p a {
-  text-decoration: none;
-  color: yellow;
 }
