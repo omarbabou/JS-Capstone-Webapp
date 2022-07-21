@@ -79,6 +79,9 @@ h1 {
 .card h3 {
   width: 220px;
   overflow: hidden;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -99,6 +102,7 @@ h1 {
 .likes {
   font-size: 1.1em;
   color: deeppink;
+  margin-bottom: 10px;
 }
 
 footer {
@@ -122,12 +126,11 @@ footer {
   left: 0;
   top: 0; 
   overflow: auto;
-  background-color: brown; 
   opacity: 99%;
 }
 
 .popup { 
-  background-color: bisque;
+  background-color: #fff;
   padding: 2rem;
   width: 80%;
   height: auto;
@@ -177,6 +180,7 @@ input {
   width: 30%;
   margin: 8px;
   outline: none;
+  background-color: bisque;
 }
 
 .comments {
@@ -192,6 +196,7 @@ input {
 
 .details .btn {
  margin-right: 50px;
+ margin-top: 5px;
  width: 150px;
  height: 50px;
 }
