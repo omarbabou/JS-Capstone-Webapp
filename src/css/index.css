@@ -65,6 +65,7 @@ h1 {
 .card h3 {
   width: 220px;
   overflow: hidden;
+  color: #fff;
 }
 
 .btn {
