@@ -57,13 +57,3 @@ export const getComments = async (movieID) => {
   const comments = await response.json();
   displayComments(comments);
 };
-
-export const addComment = async (comment) => {
-  fetch(`${baseURL}apps/${appId}/comments`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(comment),
-  });
-};

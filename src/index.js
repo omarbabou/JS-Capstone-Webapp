@@ -1,6 +1,6 @@
 import './css/index.css';
 import { getMovies, getMovieById } from './script/api.js';
-import { modal, getComments, addComment } from './script/modal.js';
+import { modal, getComments } from './script/modal.js';
 import { getLikes, addLike } from './script/interact.js';
 
 const displayMovie = (movie, like = null) => `<div class="card">
@@ -26,29 +26,9 @@ const displayModal = async (movieId) => {
     popContainer.style.display = 'none';
     popContainer.style.visibility = 'hidden';
   });
-  const currentDate = () => {
-    const date = new Date();
-    return date.toISOString().split('T')[0];
-  };
-
   getComments(movieId);
-  const commentForm = document.getElementById('comment-form');
-  commentForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const [name, comment] = commentForm;
-    const comme = {
-      item_id: movieId,
-      username: name.value,
-      comment: comment.value,
-    };
-    addComment(comme);
-    if (document.querySelector('.comments').innerHTML === '<p>No comments found</p>') {
-      document.querySelector('.comments').innerHTML = '';
-    }
-    document.querySelector('.comments').innerHTML
-    += `<li><span>${currentDate()}</span> | <span>${comme.username}:</span> ${comme.comment}</li>`;
-    commentForm.reset();
-  });
+  // eslint-disable-next-line no-undef
+  document.querySelector('.comments').innerHTML += `<li><span>${currentDate()}</span> | <span>${comme.username}:</span> ${comme.comment}</li>`;
 };
 
 const listMovie = document.querySelector('.movies');
