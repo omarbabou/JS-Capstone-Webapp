@@ -1,7 +1,7 @@
 import './css/index.css';
-import { getMovies, getMovieById, countMovies } from './script/api.js';
-import { modal, getComments, addComment } from './script/modal.js';
-import { getLikes, addLike } from './script/interact.js';
+import { getMovies, getMovieById } from './script/api.js';
+import modal from './script/modal.js';
+import { getLikes } from './script/interact.js';
 
 const displayMovie = (movie, like = null) => `<div class="card">
                     <div>
@@ -26,29 +26,6 @@ const displayModal = async (movieId) => {
     popContainer.style.display = 'none';
     popContainer.style.visibility = 'hidden';
   });
-  const currentDate = () => {
-    const date = new Date();
-    return date.toISOString().split('T')[0];
-  };
-
-  getComments(movieId);
-  const commentForm = document.getElementById('comment-form');
-  commentForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const [name, comment] = commentForm;
-    const comme = {
-      item_id: movieId,
-      username: name.value,
-      comment: comment.value,
-    };
-    addComment(comme);
-    if (document.querySelector('.comments').innerHTML === '<p>No comments found</p>') {
-      document.querySelector('.comments').innerHTML = '';
-    }
-    document.querySelector('.comments').innerHTML
-    += `<li><span>${currentDate()}</span> | <span>${comme.username}:</span> ${comme.comment}</li>`;
-    commentForm.reset();
-  });
 };
 
 const listMovie = document.querySelector('.movies');
@@ -56,28 +33,15 @@ const moviesComponent = async () => {
   const likes = await getLikes();
   listMovie.innerHTML = '';
   const list = await getMovies();
-  countMovies(list);
   list.forEach((item) => {
     let count = 0;
-    const num = likes.find((like) => item.id === Number(like.item_id));
-    if (num !== undefined) {
-      count = num.likes;
+    const tin = likes.find((like) => item.id === Number(like.item_id));
+    if (tin !== undefined) {
+      count = tin.likes;
     } else {
       count = 0;
     }
     listMovie.innerHTML += displayMovie(item, count);
-  });
-
-  const like = document.querySelectorAll('.like');
-  like.forEach((item) => {
-    item.addEventListener('click', () => {
-      const movieId = item.getAttribute('data-id');
-      if (item.style.color !== 'skyblue') {
-        item.style.color = 'skyblue';
-        item.firstElementChild.innerHTML = Number(item.firstElementChild.innerHTML) + 1;
-        addLike(movieId);
-      }
-    });
   });
 
   const btn = document.querySelectorAll('.btn');
@@ -88,5 +52,14 @@ const moviesComponent = async () => {
     });
   });
 };
+
+fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/', {
+  method: 'POST',
+  body: JSON.stringify({ name: 'Vahan' }),
+  headers: {
+    'Content-type': 'application/json; charset= UTF-8',
+  },
+}).then((respons) => respons.json())
+  .then((data) => console.log(data));
 
 moviesComponent();
