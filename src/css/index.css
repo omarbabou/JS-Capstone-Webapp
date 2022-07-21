@@ -14,6 +14,16 @@ body {
   background-color: #22254b;
 }
 
+.nav-logo {
+  width: 90px;
+  height: auto;
+  padding: 5px;
+  margin-top: 13px;
+  background-image: url(../graphics/logo.png);
+  background-size: 84px 27px;
+  background-repeat: no-repeat;
+}
+
 nav ul > li {
   text-align: center;
   padding: 16px;
@@ -100,6 +110,7 @@ h1 {
   font-size: 1.1em;
   color: deeppink;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 footer {
