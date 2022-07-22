@@ -49,7 +49,7 @@ const displayComments = (comments) => {
   }
 };
 
-const countComments = (comments) => {
+export const countComments = (comments) => {
   if (comments.length) {
     document.getElementById('count').innerHTML = `Comments ( <span class="fig">${comments.length}</span> )`;
   }
