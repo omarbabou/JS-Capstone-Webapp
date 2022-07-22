@@ -1,4 +1,4 @@
-import { countMovies } from './src/script/api.js';
+import countMovies from './src/script/api.js';
 
 test('displays number of items on home-page', () => {
   document.body.innerHTML = '<h1 class="count-movies"></h1>';
