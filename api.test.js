@@ -1,4 +1,4 @@
-import countMovies from './src/script/api.js';
+import { countMovies } from './src/script/api.js';
 
 test('displays number of items on home-page', () => {
   document.body.innerHTML = '<h1 class="count-movies"></h1>';
@@ -7,7 +7,7 @@ test('displays number of items on home-page', () => {
 });
 
 test('displays nothing if there are no items on home-page', () => {
-  document.body.innerHTML = '<h1 class="count-movies"></h1>';
+  document.body.innerText = '<h1 class="count-movies"></h1>';
   countMovies([]);
   expect(document.querySelector('.count-movies').innerHTML).toBe('');
 });
