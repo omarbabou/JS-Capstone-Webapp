@@ -1,9 +1,9 @@
 import './css/index.css';
-import { getMovies, getMovieById, countMovies } from './script/api.js';
+import { getMovies, getMovieById, countMovies } from './modules/api.js';
 import {
   modal, getComments, addComment, updateCount,
-} from './script/modal.js';
-import { getLikes, addLike } from './script/interact.js';
+} from './modules/modal.js';
+import { getLikes, addLike } from './modules/interact.js';
 
 const displayMovie = (movie, like = null) => `<div class="card">
                     <div>
