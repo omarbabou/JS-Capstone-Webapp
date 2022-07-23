@@ -22,6 +22,9 @@ JavaScript capstone project - API-based webapp
 ## Live Demo
 
 [Live Demo Link](https://idriss-omar-js-capstone.netlify.app/)
+
+## Video Link
+
 [Video Link](https://www.loom.com/share/089434e954ff489cab7711a4834a7917)
 
 ## Getting Started
